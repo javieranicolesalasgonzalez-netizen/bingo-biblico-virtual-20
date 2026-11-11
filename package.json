@@ -1,0 +1,15 @@
+{
+  "name": "bingo-biblico-virtual",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bingo Bíblico virtual multijugador con marcación mixta y desempates aleatorios",
+  "main": "server.js",
+  "type": "commonjs",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test test/*.test.js",
+    "test:integration": "python3 test/integration.test.py"
+  },
+  "dependencies": { "pg": "^8.13.1" }
+}
