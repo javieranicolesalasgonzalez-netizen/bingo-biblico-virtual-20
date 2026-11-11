@@ -1,8 +1,9 @@
-# Plan gratuito de Render. Debe usarse con PostgreSQL externo persistente (p. ej. Supabase Free).
+# Bingo Bíblico Virtual — despliegue gratuito. La base Postgres ya existe en Render.
 services:
   - type: web
-    name: bingo-biblico-virtual
+    name: bingo-biblico-20
     runtime: node
+    region: oregon
     plan: free
     buildCommand: npm install --omit=dev
     startCommand: npm start
@@ -10,9 +11,11 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
+      - key: NODE_VERSION
+        value: "22"
       - key: ADMIN_PASSWORD
         generateValue: true
       - key: DATABASE_URL
-        sync: false
-      - key: NODE_VERSION
-        value: 22
+        fromDatabase:
+          name: bingo-biblico-db-gratis
+          property: connectionString
